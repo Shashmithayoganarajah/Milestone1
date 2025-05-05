@@ -10,12 +10,14 @@ import java.util.List;
 class Tweet {
     int userId;
     int tweetId;
+    String tweet;
     int time;
 
-    Tweet(int userId, int tweetId, int time) {
+    Tweet(int userId, int tweetId, String tweet, int time) {
         this.userId = userId;
         this.tweetId = tweetId;
         this.time = time;
+        this.tweet=tweet;
     }
 }
 
@@ -24,19 +26,20 @@ public class Trello {
     private List<int[]> followRelations = new ArrayList<>();
     private int timestamp =0;
     //post a tweet
-    public void postTweet(int userId, int tweetId) {
-        tweets.add(new Tweet(userId, tweetId, timestamp++));
+    public void postTweet(int userId, String tweet ,int tweetId) {
+        tweets.add(new Tweet(userId, tweetId,tweet,timestamp++));
     }
 
     // Get 10 most recent tweets for a user
-    public List<Integer> getNewsFeed(int userId) {
-        List<Integer> feed = new ArrayList<>();
+    public List<String> getNewsFeed(int userId) {
+        List<String> feed = new ArrayList<>();
         List<Integer> followees = getFollowees(userId);
 
         for (int i = tweets.size() - 1; i >= 0 && feed.size() < 10; i--) {
             Tweet t = tweets.get(i);
             if (t.userId == userId || followees.contains(t.userId)) {
-                feed.add(t.tweetId);
+                feed.add(String.valueOf(t.tweetId));
+                feed.add(t.tweet);
             }
         }
 
