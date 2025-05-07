@@ -7,8 +7,8 @@ Unfollow users*/
 import java.util.ArrayList;
 import java.util.List;
 public class Trello {
-    public List<Tweet> tweets= new ArrayList<>();
-    public List<int[]> followRelations = new ArrayList<>();
+    private List<Tweet> tweets= new ArrayList<>();
+    private List<int[]> followRelations = new ArrayList<>();
     public int timestamp =0;
     //post a tweet
     public void postTweet(int userId, String tweet ,int tweetId) {
