@@ -6,25 +6,10 @@ Unfollow users*/
 
 import java.util.ArrayList;
 import java.util.List;
-
-class Tweet {
-    int userId;
-    int tweetId;
-    String tweet;
-    int time;
-
-    Tweet(int userId, int tweetId, String tweet, int time) {
-        this.userId = userId;
-        this.tweetId = tweetId;
-        this.time = time;
-        this.tweet=tweet;
-    }
-}
-
 public class Trello {
-    private List<Tweet> tweets= new ArrayList<>();
-    private List<int[]> followRelations = new ArrayList<>();
-    private int timestamp =0;
+    public List<Tweet> tweets= new ArrayList<>();
+    public List<int[]> followRelations = new ArrayList<>();
+    public int timestamp =0;
     //post a tweet
     public void postTweet(int userId, String tweet ,int tweetId) {
         tweets.add(new Tweet(userId, tweetId,tweet,timestamp++));
